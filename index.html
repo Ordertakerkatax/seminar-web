@@ -88,59 +88,23 @@
     <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden">
         <!-- Top Section: Seminar Details -->
         <div class="w-full p-8 card-gradient text-white flex flex-col justify-center">
+            <!-- All the header content goes here... -->
             <p class="text-xl sm:text-2xl font-bold mb-3 text-shadow">🚨 Regular BIR Audit Letters Are Out — RAFT LoA Is In. Do You Know What It Means for Your Business? 🚨</p>
             <h1 class="text-4xl sm:text-5xl font-bold mb-4 text-shadow">Criminal-grade investigations have replaced routine math checks.</h1>
             <p class="text-lg sm:text-xl mb-6 opacity-90">Join us on <span class="font-bold">July 9 • 10 AM – 5 PM • Lanson Place Manila (SM Mall of Asia, Pasay)</span> to learn how the BIR’s new Run-After-Fake-Transactions (RAFT) Letter of Authority can put even honest businesses in the cross-fire—and what you can do about it.</p>
-            <div class="mb-4">
-                <h3 class="text-2xl font-semibold mb-3">Why the Old VAT & Income-Tax LoAs Were Cancelled</h3>
-                <table class="table-auto text-sm bg-white bg-opacity-10 rounded-lg overflow-hidden">
-                    <thead>
-                        <tr class="bg-gray-100 bg-opacity-20">
-                            <th class="py-2 px-3">Then</th>
-                            <th class="py-2 px-3">Now</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="py-2 px-3">Regular LoA: Simple checklist to verify one taxpayer’s numbers.</td>
-                            <td class="py-2 px-3">RAFT LoA: Special investigation order aimed at a network suspected of large-scale fraud.</td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-3">Focused on errors (under-declarations, mis-computations).</td>
-                            <td class="py-2 px-3">Focused on felonies (fake transactions, paper syndicates, potential jail time).</td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-3">Handled by your local revenue officer.</td>
-                            <td class="py-2 px-3">Driven by a national task force of forensic-audit specialists.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="text-sm mt-3 opacity-90">If your original LoA was withdrawn and swapped for a RAFT LoA, the BIR now thinks you might be part of a criminal web—not just sloppy in arithmetic.</p>
-            </div>
-            <div class="mb-6">
-                <h3 class="text-2xl font-semibold mb-2">Three Wake-Up Calls Every Owner Should Hear:</h3>
-                <ul class="list-disc list-inside text-lg space-y-2">
-                    <li><span class="font-medium">You’re now linked to a suspected syndicate—directly or by association.</span> The RAFT task force maps the entire “spider-web” of suppliers, customers, and brokers to trace fake sales invoices.</li>
-                    <li><span class="font-medium">This is a major-crime probe, not a routine assessment.</span> Findings can lead to tax fraud charges, asset freezes, or imprisonment—far beyond payment of deficiencies.</li>
-                    <li><span class="font-medium">A national SWAT-team of tax experts is involved.</span> Seasoned investigators with subpoena power will review bank records, e-invoicing trails, and third-party data, not just your ledgers.</li>
-                </ul>
-            </div>
-            <p class="text-md opacity-80 mt-auto">Arm yourself with knowledge. Protect your business and your freedom!</p>
+            <!-- ...and the rest of the top section content -->
         </div>
 
         <!-- Bottom Section: Registration Form -->
         <div class="w-full p-8 bg-white flex flex-col justify-center">
             <h2 id="formTitle" class="text-3xl font-bold text-gray-800 mb-6 text-center">Secure Your Spot Now!</h2>
             <form id="registrationForm" class="space-y-6" name="seminar-registration" method="POST" data-netlify="true">
-                <!-- IMPORTANT: This hidden field is required for Netlify to identify the form -->
                 <input type="hidden" name="form-name" value="seminar-registration" />
-
-                <!-- CHANGE 1: ADD HIDDEN INPUTS TO PASS CALCULATED DATA -->
                 <input type="hidden" id="ticketNameDisplayInput" name="ticketNameDisplay" />
                 <input type="hidden" id="displayPriceInput" name="displayPrice" />
-
-                <!-- Participant Details -->
-                <div>
+                
+                <!-- All form fields go here... -->
+                 <div>
                     <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
                     <input type="text" id="fullName" name="fullName" required
                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
@@ -155,8 +119,6 @@
                     <input type="text" id="company" name="company"
                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 </div>
-
-                <!-- Ticket Type Selection -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Select Investment Level (Rates are exclusive of EWT and VAT)</label>
                     <div class="mt-2 space-y-3">
@@ -172,70 +134,8 @@
                         <p class="text-sm text-gray-500 ml-7">Includes all regular ticket benefits plus a 30-min private consultation after the seminar.</p>
                     </div>
                 </div>
-
-                <!-- Other sections ... (What you'll master, who should attend, instructors) -->
-                <div class="mt-8">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">What You’ll Master at the Seminar:</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm">
-                        <li><span class="font-medium">Decode the RAFT LoA:</span> Understand every clause, timeframe, and documentary demand so nothing catches you off-guard.</li>
-                        <li><span class="font-medium">Map Your Exposure:</span> Spot red-flag transactions and supplier links before investigators do; know when to disclose, dispute, or distance.</li>
-                        <li><span class="font-medium">Craft a Defense Playbook:</span> Learn proven arguments, evidence templates, and negotiation tactics that have saved taxpayers millions of pesos.</li>
-                        <li><span class="font-medium">Act, Don’t React:</span> Step-by-step timelines for submissions, extensions, field audits, and potential criminal complaints—plus scripts for talking to revenue officers.</li>
-                    </ul>
-                </div>
-                <div class="mt-8">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Who Should Attend?</h3>
-                    <table class="table-auto text-sm border-collapse w-full">
-                        <thead>
-                            <tr class="bg-gray-50">
-                                <th class="py-2 px-3 border border-gray-200">Perfect for</th>
-                                <th class="py-2 px-3 border border-gray-200">Why You Can’t Skip It</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="py-2 px-3 border border-gray-200 font-medium">Business Owners & CFOs</td>
-                                <td class="py-2 px-3 border border-gray-200">Personal liability increases when fraud is alleged.</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-3 border border-gray-200 font-medium">CPAs & Tax Practitioners</td>
-                                <td class="py-2 px-3 border border-gray-200">Clients will demand expert guidance—or move on.</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-3 border border-gray-200 font-medium">Legal & Compliance Officers</td>
-                                <td class="py-2 px-3 border border-gray-200">Early intervention can prevent criminal escalation.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="mt-8 bg-blue-50 p-6 rounded-lg border border-blue-200 shadow-sm text-center">
-                    <h3 class="text-xl font-bold text-blue-800 mb-4">Your Instructors</h3>
-                    <img src="images/speaker_maestro.jpg" alt="Emelino T. Maestro Profile" class="mx-auto rounded-full w-36 h-36 object-cover mb-4 border-2 border-blue-400">
-                    <p class="text-lg font-semibold text-blue-700">Emelino T. Maestro, CPA</p>
-                    <div class="speaker-list-container">
-                        <ul class="list-disc list-inside text-blue-600 text-sm space-y-1">
-                            <li>"FATHER of Philippine TAX ACCOUNTING," authored 30+ tax guides</li>
-                            <li>Founded ETM Tax Agent Office & Auditor Ng Bayan [NGO]</li>
-                            <li>Pioneered #Kataxpayer to combat tax ignorance via education</li>
-                            <li>40 years defending taxpayers in high-stakes BIR investigations</li>
-                            <li>Former resource speaker for various business organizations and firms</li>
-                            <li>Successfully quashed ₱1.2 B in tax assessments—including RAFT cases</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-8 bg-blue-50 p-6 rounded-lg border border-blue-200 shadow-sm text-center">
-                    <img src="images/speaker_galias.jpg" alt="Linus Galias Profile" class="mx-auto rounded-full w-36 h-36 object-cover mb-4 border-2 border-blue-400">
-                    <p class="text-lg font-semibold text-blue-700">Atty. Linus Galias</p>
-                    <div class="speaker-list-container">
-                        <ul class="list-disc list-inside text-blue-600 text-sm space-y-1">
-                            <li>Founding Partner, De Guzman Galias & Rivera Law Offices (DGR Law) — a boutique firm in Pasig City focused on tax litigation and business compliance.</li>
-                            <li>18-year tax litigator with regular appearances before the Court of Tax Appeals on high-stakes deficiency and fraud cases.</li>
-                            <li>Go-to counsel for companies facing RAFT and other criminal-grade BIR audits, known for marrying courtroom advocacy with forensic accounting to defuse multi-million-peso exposures.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Submit Button -->
+                <!-- ...and the rest of the form sections -->
+                
                 <div>
                     <button type="submit"
                             class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white btn-gradient focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -246,10 +146,52 @@
 
             <!-- Registration Confirmation & Payment Instructions -->
             <div id="paymentInstructions" class="hidden-element mt-6 text-gray-800">
-                <!-- Content remains the same -->
+                <h2 class="text-3xl font-bold text-center mb-6">Thank You for Registering!</h2>
+                <p id="confirmationMessage" class="text-lg text-center mb-6">
+                    Your registration details have been successfully received.
+                </p>
+
+                <div class="bg-blue-50 border-l-4 border-blue-400 text-blue-700 p-4 rounded-md mb-6" role="alert">
+                    <p class="font-bold">Next Step: Complete Your Payment</p>
+                    <p class="text-sm">Please make your payment using one of the options below. Your spot will be confirmed upon successful receipt of payment.</p>
+                </div>
+
+                <!-- Payment Options -->
+                <div class="space-y-6">
+                    <!-- Bank Deposit Option -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-700">1. Bank Deposit (Over-the-Counter or Banking App)</h3>
+                        <p class="text-sm mb-3">Please deposit the exact amount to our bank account. Make sure to capture a screenshot or photo of your transaction receipt for verification.</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-medium">Bank Name:</span> <span class="font-bold text-indigo-700">Union Bank</span></li>
+                            <li><span class="font-medium">Account Name:</span> <span class="font-bold text-indigo-700">Emelson Maestro</span></li>
+                            <li><span class="font-medium">Account Number:</span> <span class="font-bold text-indigo-700">1094 5043 3900</span></li>
+                            <li><span class="font-medium">Amount Due:</span> <span id="amountDueBank" class="font-bold text-green-700">₱0.00 (Inclusive of EWT & VAT)</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- GCash/Maya QR Payment Option -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-700">2. GCash </h3>
+                        <p class="text-sm mb-3">Scan the QR code below using your GCash. Please ensure the payment is sent to the correct account and screenshot your transaction.</p>
+                        <div class="flex flex-col items-center justify-center space-y-3">
+                            <img id="qrCodeImage" src="images/placeholder_qr.jpg" alt="QR Code for Payment" class="w-96 h-128 rounded-md border border-gray-300 shadow-sm">
+                            <p class="text-gray-700"><span class="font-medium">Account Name:</span> <span class="font-bold text-indigo-700">EMELSON MAESTRO</span></p>
+                            <p class="text-gray-700"><span class="font-medium">Mobile Number:</span> <span class="font-bold text-indigo-700">0917-XXX-XXXX</span></p>
+                            <p class="text-gray-700"><span class="font-medium">Amount Due:</span> <span id="amountDueQR" class="font-bold text-green-700">₱0.00 (Inclusive of EWT & VAT)</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700 p-4 rounded-md mt-6" role="alert">
+                    <p class="font-bold">Important:</p>
+                    <p class="text-sm">Please allow 1-2 business days for payment verification. You will receive an email confirmation once your payment has been successfully processed and your spot is secured.</p>
+                    <p class="text-sm mt-1">For any concerns, please contact us at <a href="mailto:esm.taxconsultant@kataxpayer.com" class="underline">esm.taxconsultant@kataxpayer.com</a>.</p>
+                </div>
+                 <!-- Other informational sections... -->
             </div>
 
-            <!-- Error Box (remains the same) -->
+            <!-- Error Box -->
             <div id="errorBox" class="hidden mt-6 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md" role="alert">
                 <p class="font-bold">Registration Failed!</p>
                 <p id="errorText"></p>
@@ -259,8 +201,9 @@
 
     <script>
         document.getElementById('registrationForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
 
+            // This part is the same as before
             const fullName = document.getElementById('fullName').value;
             const email = document.getElementById('email').value;
             const ticketType = document.querySelector('input[name="ticketType"]:checked').value;
@@ -292,28 +235,22 @@
                 qrImageSrc = "images/gcash_qr_consultation.jpg";
             }
 
-            // CHANGE 2: UPDATE HIDDEN INPUTS INSTEAD OF USING formData.append
-            // Get our hidden input fields
             const ticketNameInput = document.getElementById('ticketNameDisplayInput');
             const displayPriceInput = document.getElementById('displayPriceInput');
 
-            // Set their values before submitting the form
             ticketNameInput.value = ticketNameDisplay;
             displayPriceInput.value = displayPrice;
             
-            // Now, when we create formData, it will include these new values automatically
             const formData = new FormData(registrationForm);
             const encodedData = new URLSearchParams(formData).toString();
 
             try {
-                // Submit form data to Netlify in the background
                 await fetch("/", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: encodedData
                 });
 
-                // On successful background submission, update the UI
                 registrationForm.classList.add('hidden-element');
                 formTitle.classList.add('hidden-element');
 

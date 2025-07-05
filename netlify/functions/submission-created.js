@@ -51,7 +51,7 @@ exports.handler = async function(event, context) {
             </div>
 
             <p><strong>Next Step:</strong> Your spot is reserved pending payment. Please proceed with the payment instructions shown on our website to confirm your seat.</p>
-            <p>If you have any questions, please reply to this email or contact us at esm.taxconsultant@kataxpayer.com.</p>
+            <p>If you have any questions, contact us at esm.taxconsultant@kataxpayer.com.</p>
             <p>We look forward to seeing you there!</p>
             <p>Best regards,<br>The ETM Tax Specialista Team</p>
           </div>

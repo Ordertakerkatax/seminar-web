@@ -84,7 +84,11 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start py-20 px-4 sm:px-6 lg:px-8">
+    <section id="eventsSection" class="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden mb-8 p-6">
+        <h2 class="text-3xl font-bold mb-4 text-center">Upcoming Events</h2>
+        <div id="eventsList" class="space-y-4"></div>
+    </section>
     <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden">
         <!-- Top Section: Seminar Details (now for RAFT LoA) -->
         <div class="w-full p-8 card-gradient text-white flex flex-col justify-center">
@@ -410,6 +414,27 @@
                 console.error('Form submission error:', error);
                 errorText.textContent = `There was an error processing your registration. Please try again later.`;
                 errorBox.classList.remove('hidden');
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('/.netlify/functions/events');
+                if (!response.ok) throw new Error('Failed to load events');
+                const events = await response.json();
+                const list = document.getElementById('eventsList');
+                events.forEach(ev => {
+                    const card = document.createElement('div');
+                    card.className = 'border border-gray-200 rounded-lg p-4';
+                    card.innerHTML = `
+                        <h3 class="text-xl font-semibold">${ev.title}</h3>
+                        <p class="text-gray-700">${ev.date} • ${ev.location}</p>
+                        <a href="event.html?id=${ev.id}" class="text-blue-600 font-medium">Book Now</a>`;
+                    list.appendChild(card);
+                });
+            } catch (err) {
+                console.error(err);
             }
         });
     </script>

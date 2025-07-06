@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <div id="loginSection" class="max-w-md mx-auto bg-white p-6 rounded shadow">
+    <h2 class="text-2xl font-bold mb-4">Admin Login</h2>
+    <input id="passwordInput" type="password" placeholder="Password" class="border p-2 w-full mb-4" />
+    <button id="loginBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Login</button>
+    <p id="loginError" class="text-red-500 mt-2 hidden">Invalid password</p>
+  </div>
+
+  <div id="adminSection" class="hidden">
+    <div class="max-w-xl mx-auto bg-white p-6 mt-6 rounded shadow">
+      <h2 class="text-xl font-bold mb-4">Create Event</h2>
+      <input id="newName" placeholder="Name" class="border p-2 w-full mb-2" />
+      <input id="newDate" placeholder="Date" class="border p-2 w-full mb-2" />
+      <textarea id="newDesc" placeholder="Description" class="border p-2 w-full mb-2"></textarea>
+      <button id="createBtn" class="bg-green-600 text-white px-4 py-2 rounded">Create</button>
+    </div>
+
+    <div class="max-w-xl mx-auto bg-white p-6 mt-6 rounded shadow">
+      <h2 class="text-xl font-bold mb-4">Update Event</h2>
+      <input id="updateId" placeholder="ID" class="border p-2 w-full mb-2" />
+      <input id="updateName" placeholder="Name" class="border p-2 w-full mb-2" />
+      <input id="updateDate" placeholder="Date" class="border p-2 w-full mb-2" />
+      <textarea id="updateDesc" placeholder="Description" class="border p-2 w-full mb-2"></textarea>
+      <button id="updateBtn" class="bg-yellow-600 text-white px-4 py-2 rounded">Update</button>
+    </div>
+
+    <div class="max-w-xl mx-auto bg-white p-6 mt-6 rounded shadow">
+      <h2 class="text-xl font-bold mb-4">Booking Summary</h2>
+      <button id="summaryBtn" class="bg-blue-600 text-white px-4 py-2 rounded">View Summary</button>
+      <pre id="summaryOutput" class="mt-4 bg-gray-100 p-2"></pre>
+    </div>
+  </div>
+
+<script>
+const loginSection = document.getElementById('loginSection');
+const adminSection = document.getElementById('adminSection');
+const passwordInput = document.getElementById('passwordInput');
+const loginError = document.getElementById('loginError');
+
+if (localStorage.getItem('adminSecret')) {
+  loginSection.classList.add('hidden');
+  adminSection.classList.remove('hidden');
+}
+
+document.getElementById('loginBtn').addEventListener('click', async () => {
+  const password = passwordInput.value;
+  const resp = await fetch('/.netlify/functions/admin-auth', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password })
+  });
+  if (resp.ok) {
+    localStorage.setItem('adminSecret', password);
+    loginSection.classList.add('hidden');
+    adminSection.classList.remove('hidden');
+  } else {
+    loginError.classList.remove('hidden');
+  }
+});
+
+async function fetchWithAuth(url, options = {}) {
+  const secret = localStorage.getItem('adminSecret');
+  options.headers = Object.assign({}, options.headers, {
+    'Content-Type': 'application/json',
+    'x-admin-secret': secret
+  });
+  const res = await fetch(url, options);
+  if (res.status === 401) {
+    alert('Unauthorized');
+    return null;
+  }
+  return res.json();
+}
+
+document.getElementById('createBtn').addEventListener('click', async () => {
+  const data = {
+    name: document.getElementById('newName').value,
+    date: document.getElementById('newDate').value,
+    description: document.getElementById('newDesc').value
+  };
+  await fetchWithAuth('/.netlify/functions/manage-event', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  });
+  alert('Event created');
+});
+
+document.getElementById('updateBtn').addEventListener('click', async () => {
+  const data = {
+    id: document.getElementById('updateId').value,
+    name: document.getElementById('updateName').value,
+    date: document.getElementById('updateDate').value,
+    description: document.getElementById('updateDesc').value
+  };
+  await fetchWithAuth('/.netlify/functions/manage-event', {
+    method: 'PUT',
+    body: JSON.stringify(data)
+  });
+  alert('Event updated');
+});
+
+document.getElementById('summaryBtn').addEventListener('click', async () => {
+  const result = await fetchWithAuth('/.netlify/functions/booking-summary');
+  document.getElementById('summaryOutput').textContent = JSON.stringify(result, null, 2);
+});
+</script>
+</body>
+</html>

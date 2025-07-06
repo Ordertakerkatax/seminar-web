@@ -400,7 +400,7 @@
                 confirmationMessage.innerHTML = `Thank you, <span class="font-semibold">${fullName}</span>! Your registration for the <span class="font-semibold">${ticketNameDisplay}</span> has been received.`;
                 
                 amountDueBank.textContent = `₱${displayPrice.toLocaleString('en-PH', {minimumFractionDigits: 2, maximumFractionDigits: 2})} (Inclusive of EWT & VAT)`;
-                amountDueQR.textContent = `₱${displayPrice.toLocaleString('en-ph', {minimumFractionDigits: 2, maximumFractionDigits: 2})} (Inclusive of EWT & VAT)`;
+                amountDueQR.textContent = `₱${displayPrice.toLocaleString('en-PH', {minimumFractionDigits: 2, maximumFractionDigits: 2})} (Inclusive of EWT & VAT)`;
                 qrCodeImage.src = qrImageSrc;
 
                 paymentInstructions.classList.remove('hidden-element');

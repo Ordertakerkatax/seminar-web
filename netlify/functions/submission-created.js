@@ -26,7 +26,7 @@ exports.handler = async function(event, context) {
     await resend.emails.send({
       from: 'RAFT Seminar <no-reply@taxspecialista.com>', // IMPORTANT: Use a verified sender from Resend
       to: email, // The email address from the form
-      subject: '✅ Your RAFT LoA Seminar Registration is Received!',
+      subject: '✅ Your RAFT LoA Seminar Registration is Received! (July 19, 2025)', // Updated subject line
       html: `
         <!DOCTYPE html>
         <html>

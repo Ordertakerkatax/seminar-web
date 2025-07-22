@@ -153,7 +153,7 @@ src="https://www.facebook.com/tr?id=3006469812857457&ev=PageView&noscript=1"
                     <div class="text-center sm:text-left">
                         <p class="text-lg font-semibold">Emelino T. Maestro, CPA</p>
                         <ul class="list-disc list-inside text-sm space-y-1 mt-2 ml-4 sm:ml-0">
-                            <li>40-year tax veteran; defended 1,00+ assessments</li>
+                            <li>40-year tax veteran; defended 1,000+ assessments</li>
                             <li>Author of 30 Books on Taxation</li>
                             <li>Taxpayer's Rights Champion</li>
                         </ul>
@@ -241,15 +241,15 @@ src="https://www.facebook.com/tr?id=3006469812857457&ev=PageView&noscript=1"
                     <div class="mt-2 space-y-3">
                         <label class="radio-label">
                             <input type="radio" name="ticketType" value="regular" class="form-radio text-blue-600 h-5 w-5" checked>
-                            <span class="ml-2 text-gray-800 text-lg">Regular Ticket - ₱20,000</span>
+                            <span class="ml-2 text-gray-800 text-lg">Regular Ticket -> ₱20,000</span>
                         </label>
-                        <label class="radio-label mt-3">
+                        <label id="earlyBirdOption" class="radio-label mt-3">
                             <input type="radio" name="ticketType" value="early" class="form-radio text-blue-600 h-5 w-5">
-                            <span class="ml-2 text-gray-800 text-lg">Early-Bird (pay by 25 July) - ₱18,000</span>
+                            <span class="ml-2 text-gray-800 text-lg">Early-Bird (pay by 25 July) -> ₱18,000</span>
                         </label>
                         <label class="radio-label mt-3">
                             <input type="radio" name="ticketType" value="group" class="form-radio text-blue-600 h-5 w-5">
-                            <span class="ml-2 text-gray-800 text-lg">Group of 2+ - ₱16,000 per pax</span>
+                            <span class="ml-2 text-gray-800 text-lg">Group of 2+ -> ₱16,000 per pax</span>
                         </label>
                     </div>
                 </div>
@@ -406,6 +406,42 @@ src="https://www.facebook.com/tr?id=3006469812857457&ev=PageView&noscript=1"
         };
         ticketInputs.forEach(input => input.addEventListener('change', updateSelection));
         updateSelection();
+         // Countdown to early-bird deadline (July 25, 2025 23:59:59 Philippine Time)
+        const countdownEl = document.getElementById('earlyBirdCountdown');
+        const earlyBirdLabel = document.getElementById('earlyBirdOption');
+        const earlyBirdEnd = new Date('2025-07-25T23:59:59+08:00'); // Philippine time
+
+        const updateCountdown = () => {
+            const now = new Date();
+            const diff = earlyBirdEnd.getTime() - now.getTime();
+
+            if (diff <= 0) {
+                countdownEl.textContent = 'Early-bird pricing has ended.';
+                if (earlyBirdLabel) {
+                    earlyBirdLabel.style.display = 'none';
+                    const earlyInput = earlyBirdLabel.querySelector('input');
+                    if (earlyInput && earlyInput.checked) {
+                        document.querySelector('input[name="ticketType"][value="regular"]').checked = true;
+                        updateSelection();
+                    }
+                }
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            countdownEl.textContent = `Early-bird rate ends in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            if (earlyBirdLabel) {
+                earlyBirdLabel.style.display = '';
+            }
+        };
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
 </html>

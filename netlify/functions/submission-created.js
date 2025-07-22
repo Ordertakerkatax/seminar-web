@@ -23,10 +23,10 @@ exports.handler = async function(event, context) {
     console.log("Received submission for:", email);
 
     // Send the email using Resend
-    await resend.emails.send({
-      from: 'RAFT Seminar <no-reply@taxspecialista.com>', // IMPORTANT: Use a verified sender from Resend
+  await resend.emails.send({
+      from: 'LoA Shield Workshop <no-reply@taxspecialista.com>', // IMPORTANT: Use a verified sender from Resend
       to: email, // The email address from the form
-      subject: '✅ Your RAFT LoA Seminar Registration is Received! (July 19, 2025)', // Updated subject line
+      subject: '✅ Your Seat Is Reserved: LoA Shield Workshop (July 30, 2025)',
       html: `
         <!DOCTYPE html>
         <html>
@@ -43,7 +43,7 @@ exports.handler = async function(event, context) {
           <div class="container">
             <div class="header">Registration Confirmation</div>
             <p>Hello ${fullName},</p>
-            <p>Thank you for registering for the <strong>RAFT LoA Seminar: BIR Criminal-Grade Investigations</strong>. We have received your preliminary registration details.</p>
+            <p>Thank you for registering for the <strong>LoA Shield Workshop: Stop Repeat BIR Letters of Authority</strong>. We have received your preliminary registration details.</p>
             
             <div class="details">
               <p><strong>Ticket Type:</strong> ${ticketNameDisplay}</p>
@@ -56,7 +56,7 @@ exports.handler = async function(event, context) {
             <p>Best regards,<br>The ETM Tax Specialista Team</p>
           </div>
           <div class="footer">
-            You are receiving this email because you registered for the RAFT LoA seminar.
+            You are receiving this email because you registered for the LoA Shield workshop.
           </div>
         </body>
         </html>
